@@ -3,7 +3,7 @@ package com.digite.kata.refactoring;
 import java.util.Enumeration;
 import java.util.Vector;
 
-class Customer {
+public class Customer {
     private String _name;
     private Vector<Rental> _rentals = new Vector();
 
@@ -24,6 +24,7 @@ class Customer {
         int frequentRenterPoints = 0;
         Enumeration rentals = _rentals.elements();
         String result = "Rental Record for " + getName() + "\n";
+
         while (rentals.hasMoreElements()) {
             double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();
@@ -55,11 +56,7 @@ class Customer {
             totalAmount += thisAmount;
         }
         //add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) +
-                "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints)
-                +
-                " frequent renter points";
+        result += "Amount owed is " + String.valueOf(totalAmount) + ", and You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
         return result;
     }
 }
